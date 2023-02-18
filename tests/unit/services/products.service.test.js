@@ -9,9 +9,9 @@ describe(' Testes de unidade do Service de products.', function () {
   describe('1. Listagem de produtos.', function () {
     it('1.1. Recuperando todos os produtos.', async function () {
       // Arrange
-      sinon.stub(productsModel, 'getAllProducts').resolves({ type: null, message: productsList });
+      sinon.stub(productsModel, 'getAllProducts').resolves(productsList);
       // Act
-      const result = await productsModel.getAllProducts();
+      const result = await productsService.getAllProducts();
       // Assert
       expect(result.type).to.be.equal(null);
       expect(result.message).to.deep.equal(productsList);
