@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const connection = require('../../../src/models/connection');
 const { productsModel } = require('../../../src/models')
 const { productsService } = require('../../../src/services')
-const { productsList } = require('../mocks/products.model.mock')
+const { productsList } = require('../mocks/products.mock')
 
 describe(' Testes de unidade do Service de products.', function () {
   describe('1. Listagem de produtos.', function () {
