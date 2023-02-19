@@ -16,7 +16,7 @@ const getProductById = async (req, res) => {
 
 const addProduct = async (req, res) => {
   const { name } = req.body;
-  const { message } = await productsService.createPassenger(name);
+  const { message } = await productsService.addProduct(name);
   res.status(201).json(message);
 };
 
