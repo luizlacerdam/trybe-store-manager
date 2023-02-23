@@ -12,6 +12,10 @@ const productsList = [
     "name": "Escudo do Capitão América"
   }
 ]
+const newProduct = {
+  "name": "Tanguinha do Hulk",
+}
 module.exports = {
   productsList,
+  newProduct,
 }

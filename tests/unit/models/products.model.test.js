@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const connection = require('../../../src/models/connection');
 const { productsModel } = require('../../../src/models')
-const { productsList } = require('../mocks/products.mock')
+const { productsList, newProduct } = require('../mocks/products.mock')
 
 describe('1. Testes de unidade do model de products.', function () {
   it('1.1. Recuperando todos os produtos.', async function () {
@@ -22,6 +22,14 @@ describe('1. Testes de unidade do model de products.', function () {
     // Assert
     expect(result).to.be.deep.equal(productsList[0]);
   })
+  it('1.3. Cadastrando um produto.', async function () {
+    // Arrange
+    sinon.stub(connection, 'execute').resolves([{ insertId: 4 }]);
+    // Act
+    const result = await productsModel.addProduct(newProduct);
+    // Assert
+    expect(result).to.equal(4);
+  });
   afterEach(function () {
     sinon.restore();
   });
