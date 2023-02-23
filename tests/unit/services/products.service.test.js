@@ -58,10 +58,17 @@ describe(' Testes de unidade do Service de products.', function () {
       sinon.stub(productsModel, 'getProductById').resolves(productsList[3]);
 
       // act
-      const result = await productsService.addProduct(newProduct["name"]);
+      const result = await productsService.addProduct({ "name": "Tanguinha do Hulk" });
+
       // assert
       expect(result.type).to.equal(null);
       expect(result.message).to.deep.equal({ "id": 4, ...newProduct });
+    });
+    it('3.2. Retorna um erro ao passar um nome inválido', async function () {
+      const result = await productsService.addProduct({ "name": "test" });
+      // assert
+      expect(result.type).to.equal('INVALID_VALUE');
+      expect(result.message).to.equal('"name" length must be at least 5 characters long');
     });
   });
 

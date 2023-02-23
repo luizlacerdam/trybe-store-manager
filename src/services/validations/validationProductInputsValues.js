@@ -7,9 +7,9 @@ const validateId = (id) => {
   return { type: null, message: '' };
 };
 
-const validateNewProduct = (productName) => {
+const validateNewProductName = (productName) => {
   const { error } = addProductSchema
-    .validate({ productName });
+    .validate(productName);
   if (error) return { type: 'INVALID_VALUE', message: error.message };
 
   return { type: null, message: '' };
@@ -17,5 +17,5 @@ const validateNewProduct = (productName) => {
 
 module.exports = {
   validateId,
-  validateNewProduct,
+  validateNewProductName,
 };
