@@ -18,16 +18,14 @@ describe(' Testes de unidade do Service de products.', function () {
     })
   })
   describe('2. Busca um produto por id.', function () {
-    // it('2.1 Retorna um erro caso receba um ID inválido.', async function () {
-    //   // nenhum model é chamado
+    it('2.1 Retorna um erro caso receba um ID inválido.', async function () {
+      // act
+      const result = await productsService.getProductById('a');
 
-    //   // act
-    //   const result = await productsService.getProductById('a');
-
-    //   // assert
-    //   expect(result.type).to.equal('INVALID_VALUE');
-    //   expect(result.message).to.equal('"id" must be a number');
-    // });
+      // assert
+      expect(result.type).to.equal('INVALID_VALUE');
+      expect(result.message).to.equal('"id" must be a number');
+    });
 
     it('2.2 Retorna um erro caso produto não existir.', async function () {
       // arrange
