@@ -1,11 +1,18 @@
 // const connection = require('./connection');
+// // const getAllSales
+// // const addSale = async (saleId, productId, quantity) => {
+// //   const placeholders = Object.keys(passenger)
+// //     .map((_key) => '?')
+// //     .join(', ');
+  
+// //   const [{ insertId }] = await connection.execute(
+// //     `INSERT INTO passengers (${columns}) VALUE (${placeholders})`,
+// //     [...Object.values(passenger)],
+// //   );
 
-// const addSale = async (productName) => {
-//   const [{ insertId }] = await connection
-//     .execute('INSERT INTO StoreManager.products (name) VALUE (?)', [productName]);
-//   return insertId;
-// };
+// //   return insertId;
+// // };
 
 // module.exports = {
-//   addSale,
+//   // addSale,
 // };
