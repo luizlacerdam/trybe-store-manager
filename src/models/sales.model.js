@@ -8,6 +8,18 @@ const getAllSales = async () => {
     ORDER BY s.id, productId`);
   return result;
 };
+
+const getSaleById = async (id) => {
+  const [result] = await connection.execute(
+    `SELECT s.date, p.product_id AS productId, p.quantity
+    FROM StoreManager.sales_products AS p
+    INNER JOIN StoreManager.sales AS s ON s.id = p.sale_id
+    WHERE s.id = ?
+    ORDER BY s.id, productId`,
+    [id],
+  );
+  return result;
+};
 // // const addSale = async (saleId, productId, quantity) => {
 // //   const placeholders = Object.keys(passenger)
 // //     .map((_key) => '?')
@@ -23,4 +35,5 @@ const getAllSales = async () => {
 
 module.exports = {
   getAllSales,
+  getSaleById,
 };
