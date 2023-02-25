@@ -5,8 +5,8 @@ const getAllSales = async () => {
   return { type: null, message: products };
 };
 
-const getSaleById = async () => {
-  const products = await salesModel.getSaleById();
+const getSaleById = async (id) => {
+  const products = await salesModel.getSaleById(id);
   return { type: null, message: products };
 };
 
