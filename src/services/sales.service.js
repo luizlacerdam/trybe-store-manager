@@ -5,6 +5,12 @@ const getAllSales = async () => {
   return { type: null, message: products };
 };
 
+const getSaleById = async () => {
+  const products = await salesModel.getSaleById();
+  return { type: null, message: products };
+};
+
 module.exports = {
   getAllSales,
+  getSaleById,
 };
